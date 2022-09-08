@@ -1,3 +1,0 @@
-class carro extends veiculo {
-    
-}
