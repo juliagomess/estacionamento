@@ -9,23 +9,25 @@
     </head>
     <body>
         <div>
-            <h2> Vagas disponíveis </h2>
-            <h2> Vagas ocupadas </h2>
-        </div>
-
-        <div>
             <h1> Entrada de veículo </h1>
             <input type="text" placeholder="Nome do proprietário">
             <input type="text" placeholder="Placa">
             <input type="text" placeholder="Marca">
             <input type="text" placeholder="Cor">
-            <input type="text" placeholder="Número de portas">
+            <input type="text" placeholder="Horário de Entrada">
 
+            <input type = "checkbox" id = "carro" name = "interesse" value = "carro">
+            <label for = "carro"> Carro </label>
+            <input type = "checkbox" id = "moto" name = "interesse" value = "moto">
+            <label for = "moto"> Moto </label>
+            <button>Entrar</button>
         </div>
 
         <div>
             <h1> Saída de veículo </h1>
             <input type="text" placeholder="Placa">
+            <input type="text" placeholder="Horário de Saída">
+            <button>Sair</button>
         </div>
         
         <script src="script.js"></script>

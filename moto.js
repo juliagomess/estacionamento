@@ -1,0 +1,3 @@
+class moto extends veiculo {
+
+}
