@@ -41,6 +41,14 @@ class Estacionamento {
     var rel = document.getElementById("relatorio");
     rel.innerHTML = '';
 
+    if(this.vagas.length == 0 && this.relatorio.length == 0) {
+      var aviso = document.createElement("h2");
+      var textoa = document.createTextNode("Ainda não houve registros");
+      aviso.append(textoa);
+      rel.append(aviso);
+      return;
+    }
+
     if(this.vagas.length > 0) {
       var titulo = document.createElement("h2");
       var texto = document.createTextNode("Carros estacionados");
