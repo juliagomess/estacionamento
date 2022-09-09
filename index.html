@@ -17,9 +17,9 @@
             <input id="cor" type="text" placeholder="Cor">
             <input id="horaEntrada" type="text" placeholder="Horário de Entrada">
 
-            <input type = "checkbox" id = "carro" name = "interesse" value = "carro">
+            <input type = "checkbox" id = "carro" name = "interesse" value = "carro" onclick="desabilita()">
             <label for = "carro"> Carro </label>
-            <input type = "checkbox" id = "moto" name = "interesse" value = "moto">
+            <input type = "checkbox" id = "moto" name = "interesse" value = "moto" onclick="desabilita()">
             <label for = "moto"> Moto </label>
             <button onclick="entradaVeiculo()">Entrar</button>
         </div>
@@ -33,6 +33,11 @@
 
         <button onclick="relatorio()">Gerar Relatório</button>
         <div id="relatorio">
+
+        </div>
+
+        <button onclick="saldo()">Ver Saldo</button>
+        <div id="saldo">
 
         </div>
         

@@ -3,6 +3,7 @@ class Estacionamento {
     this.qntd = num;
     this.vagas = [];
     this.relatorio = [];
+    this.saldo = 0;
   }
 
   estacionar(veiculo, horario) {
@@ -27,12 +28,13 @@ class Estacionamento {
           horaEntrada: this.vagas[i].horaEntrada,
           horaSaida: horario,
         };
+        this.saldo = this.saldo + this.vagas[i].veiculo.calcularValorPago(this.vagas[i].horaEntrada,horario);
         this.relatorio.push(reg);
         this.vagas.splice(i, 1);
-        break;
+        return;
       }
     }
-    console.log(this.vagas);
+    alert("ID não encontrado");
   }
 
   gerarRelatorio() {
@@ -47,15 +49,26 @@ class Estacionamento {
   }
 
   getSaldo() {
+    var mostra = document.getElementById("saldo");
+    mostra.innerHTML='';
 
+    var div = document.createElement("div");
+    var paragrafoSaldo = document.createElement("span");
+    var saldo = document.createTextNode("Saldo: R$" + this.saldo + ",00");
+
+    paragrafoSaldo.append(saldo);
+    div.append(paragrafoSaldo);
+
+    mostra.append(div);
   }
 
   criaDiv(infos) {
     var div = document.createElement("div");
-    var paragrafoNome = document.createElement("span");
-    var paragrafoPlaca = document.createElement("span");
-    var paragrafoHoraEntrada = document.createElement("span");
-    var paragrafoHoraSaida = document.createElement("span");
+    var paragrafoNome = document.createElement("p");
+    var paragrafoPlaca = document.createElement("p");
+    var paragrafoHoraEntrada = document.createElement("p");
+    var paragrafoHoraSaida = document.createElement("p");
+    var linha = document.createElement("hr");
     var nome = document.createTextNode("Nome: " + infos.veiculo.getNome());
     var placa = document.createTextNode("Placa: " + infos.veiculo.getPlaca());
     var horaEntrada = document.createTextNode("Hora Entrada: " + infos.horaEntrada);
@@ -70,6 +83,7 @@ class Estacionamento {
     div.append(paragrafoPlaca);
     div.append(paragrafoHoraEntrada);
     div.append(paragrafoHoraSaida);
+    div.append(linha);
   
     var rel = document.getElementById("relatorio");
     rel.append(div);
