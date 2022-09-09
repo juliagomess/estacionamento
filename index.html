@@ -10,6 +10,7 @@
     <body>
         <div>
             <h1> Entrada de veículo </h1>
+            <input id="id" type="text" placeholder="ID" value="1" disabled>
             <input id="nome" type="text" placeholder="Nome do proprietário">
             <input id="placa" type="text" placeholder="Placa">
             <input id="marca" type="text" placeholder="Marca">
@@ -25,9 +26,14 @@
 
         <div>
             <h1> Saída de veículo </h1>
-            <input type="text" placeholder="Placa">
-            <input type="text" placeholder="Horário de Saída">
-            <button>Sair</button>
+            <input id="idSaida" type="text" placeholder="ID">
+            <input id="horaSaida" type="text" placeholder="Horário de Saída">
+            <button onclick="saidaVeiculo()">Sair</button>
+        </div>
+
+        <button onclick="relatorio()">Gerar Relatório</button>
+        <div id="relatorio">
+
         </div>
         
         <script src="scripts/Veiculo.js"></script>
