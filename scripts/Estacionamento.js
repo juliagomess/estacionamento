@@ -40,12 +40,28 @@ class Estacionamento {
   gerarRelatorio() {
     var rel = document.getElementById("relatorio");
     rel.innerHTML = '';
-    for(var i=0; i<this.relatorio.length; i++) {
-      this.criaDiv(this.relatorio[i]);
-    } 
+
+    if(this.vagas.length > 0) {
+      var titulo = document.createElement("h2");
+      var texto = document.createTextNode("Carros estacionados");
+      titulo.append(texto);
+      rel.append(titulo);
+    }
+
     for(var i=0; i<this.vagas.length; i++) {
       this.criaDiv(this.vagas[i]);
     }
+
+    if(this.relatorio.length > 0) {
+      var titulo2 = document.createElement("h2");
+      var texto2 = document.createTextNode("Carros registrados");
+      titulo2.append(texto2);
+      rel.append(titulo2);
+    }
+
+    for(var i=0; i<this.relatorio.length; i++) {
+      this.criaDiv(this.relatorio[i]);
+    } 
   }
 
   getSaldo() {
@@ -68,7 +84,6 @@ class Estacionamento {
     var paragrafoPlaca = document.createElement("p");
     var paragrafoHoraEntrada = document.createElement("p");
     var paragrafoHoraSaida = document.createElement("p");
-    var linha = document.createElement("hr");
     var nome = document.createTextNode("Nome: " + infos.veiculo.getNome());
     var placa = document.createTextNode("Placa: " + infos.veiculo.getPlaca());
     var horaEntrada = document.createTextNode("Hora Entrada: " + infos.horaEntrada);
@@ -83,7 +98,7 @@ class Estacionamento {
     div.append(paragrafoPlaca);
     div.append(paragrafoHoraEntrada);
     div.append(paragrafoHoraSaida);
-    div.append(linha);
+    div.setAttribute("class","infos");
   
     var rel = document.getElementById("relatorio");
     rel.append(div);

@@ -1,0 +1,196 @@
+body {
+  background-color: rgb(207, 139, 238);
+}
+
+h1,h2 {
+  font-family: Copperplate, Papyrus, Fantasy;
+  color: #560bad;
+  margin-bottom: 0;
+}
+
+button {
+  --color: #560bad;
+  font-family: inherit;
+  display: inline-block;
+  width: 8em;
+  height: 2.6em;
+  line-height: 2.5em;
+  margin: 20px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--color);
+  transition: color .5s;
+  z-index: 1;
+  font-size: 17px;
+  border-radius: 6px;
+  font-weight: 500;
+  color: var(--color);
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  background: var(--color);
+  height: 150px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+button:hover {
+  color: #fff;
+}
+
+button:before {
+  top: 100%;
+  left: 100%;
+  transition: all .7s;
+}
+
+button:hover:before {
+  top: -30px;
+  left: -30px;
+}
+
+button:active:before {
+  background: #3a0ca3;
+  transition: background 0s;
+}
+
+#container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+}
+
+#tipo {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+#entrasai {
+  width: 45%;
+}
+
+#botoes {
+  width: 45%;
+}
+
+#relatorio {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#saldo {
+  font-family: Copperplate, Papyrus, Fantasy;
+  font-size: 30px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.teste {
+  display: flex;
+  width: 100px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.check input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  border-radius: 5px;
+}
+
+.check {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  border-radius: 5px;
+  box-shadow: 2px 2px 0px rgb(183, 183, 183);
+}
+
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.check input:checked~.checkmark {
+  box-shadow: 3px 3px 0px rgb(183, 183, 183);
+  transition: all 0.2s;
+  opacity: 1;
+  background-image: linear-gradient(45deg, rgb(100, 61, 219) 0%, rgb(217, 21, 239) 100%);
+}
+
+.check input~.checkmark {
+  transition: all 0.2s;
+  opacity: 1;
+  box-shadow: 1px 1px 0px rgb(183, 183, 183);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.check input:checked~.checkmark:after {
+  opacity: 1;
+  transition: all 0.2s;
+}
+
+.check .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid white;
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+.inputs {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.inputs input{
+  height: 25px;
+  margin: 5px;
+  width: 100%;
+}
+
+.infos {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 75%;
+  border: 5px solid #560bad;
+  margin-bottom: 5px;
+  font-size: 20px;
+}

@@ -1,48 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Estacionamento</title>
-    </head>
-    <body>
-        <div>
-            <h1> Entrada de veículo </h1>
-            <input id="id" type="text" placeholder="ID" value="1" disabled>
-            <input id="nome" type="text" placeholder="Nome do proprietário">
-            <input id="placa" type="text" placeholder="Placa">
-            <input id="marca" type="text" placeholder="Marca">
-            <input id="cor" type="text" placeholder="Cor">
-            <input id="horaEntrada" type="text" placeholder="Horário de Entrada">
 
-            <input type = "checkbox" id = "carro" name = "interesse" value = "carro" onclick="desabilita()">
-            <label for = "carro"> Carro </label>
-            <input type = "checkbox" id = "moto" name = "interesse" value = "moto" onclick="desabilita()">
-            <label for = "moto"> Moto </label>
-            <button onclick="entradaVeiculo()">Entrar</button>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Estacionamento</title>
+</head>
+
+<body>
+  <div id="container">
+
+    <div id="entrasai">
+      <div class="card">
+        <h1> Entrada de veículo </h1>
+        <div id="tipo">
+          <div class="teste">
+            <label for="carro" class="check">
+              <input type="checkbox" id="carro" name="interesse" value="carro" onclick="desabilita()">
+              <div class="checkmark"></div>
+            </label>
+            <span style="margin-left: 6px;">Carro</span>
+          </div>
+
+          <div class="teste">
+            <label for="moto" class="check">
+              <input type="checkbox" id="moto" name="interesse" value="moto" onclick="desabilita()">
+              <div class="checkmark"></div>
+            </label>
+            <span style="margin-left: 6px;">Moto</span>
+          </div>
         </div>
 
-        <div>
-            <h1> Saída de veículo </h1>
-            <input id="idSaida" type="text" placeholder="ID">
-            <input id="horaSaida" type="text" placeholder="Horário de Saída">
-            <button onclick="saidaVeiculo()">Sair</button>
+        <div class="inputs">
+          <input id="id" type="text" placeholder="ID" value="1" disabled>
+          <input id="nome" type="text" placeholder="Nome do proprietário">
+          <input id="placa" type="text" placeholder="Placa">
+          <input id="marca" type="text" placeholder="Marca">
+          <input id="cor" type="text" placeholder="Cor">
+          <input id="horaEntrada" type="text" placeholder="Horário de Entrada">
         </div>
 
-        <button onclick="relatorio()">Gerar Relatório</button>
-        <div id="relatorio">
+        <button onclick="entradaVeiculo()">Entrar</button>
+      </div>
 
+      <div class="card">
+        <h1> Saída de veículo </h1>
+        <div class="inputs">
+          <input id="idSaida" type="text" placeholder="ID">
+          <input id="horaSaida" type="text" placeholder="Horário de Saída">
         </div>
+        <button onclick="saidaVeiculo()">Sair</button>
+      </div>
 
-        <button onclick="saldo()">Ver Saldo</button>
-        <div id="saldo">
+      <button onclick="saldo()">Ver Saldo</button>
+      <div id="saldo"></div>
+    </div>
 
-        </div>
-        
-        <script src="scripts/Veiculo.js"></script>
-        <script src="scripts/Estacionamento.js"></script>        
-        <script src="scripts/script.js"></script>
-    </body>
+    <div id="botoes">
+      <button onclick="relatorio()">Gerar Relatório</button>
+      <div id="relatorio"></div>
+    </div>
+
+  </div>
+
+  <script src="scripts/Veiculo.js"></script>
+  <script src="scripts/Estacionamento.js"></script>
+  <script src="scripts/script.js"></script>
+</body>
+
 </html>
