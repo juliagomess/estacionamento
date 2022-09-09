@@ -76,6 +76,16 @@ class Estacionamento {
     var mostra = document.getElementById("saldo");
     mostra.innerHTML='';
 
+    if(this.saldo==0) {
+      var div1 = document.createElement("div");
+      var aviso = document.createElement("span");
+      var texto = document.createTextNode("Nenhum carro saiu do estacionamento ainda");
+      aviso.append(texto);
+      div1.append(aviso);
+      mostra.append(div1);
+      return;
+    }
+
     var div = document.createElement("div");
     var paragrafoSaldo = document.createElement("span");
     var saldo = document.createTextNode("Saldo: R$" + this.saldo + ",00");
