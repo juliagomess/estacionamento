@@ -2,7 +2,8 @@ body {
   background-color: rgb(207, 139, 238);
 }
 
-h1,h2 {
+h1,
+h2 {
   font-family: Copperplate, Papyrus, Fantasy;
   color: #560bad;
   margin-bottom: 0;
@@ -180,7 +181,7 @@ button:active:before {
   width: 50%;
 }
 
-.inputs input{
+.inputs input {
   height: 25px;
   margin: 5px;
   width: 100%;

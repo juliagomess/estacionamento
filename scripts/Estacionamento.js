@@ -7,7 +7,7 @@ class Estacionamento {
   }
 
   estacionar(veiculo, horario) {
-    if(this.vagas.length >= this.qntd) {
+    if (this.vagas.length >= this.qntd) {
       alert("Estacionamento cheio");
     } else {
       var novo = {
@@ -28,7 +28,7 @@ class Estacionamento {
           horaEntrada: this.vagas[i].horaEntrada,
           horaSaida: horario,
         };
-        this.saldo = this.saldo + this.vagas[i].veiculo.calcularValorPago(this.vagas[i].horaEntrada,horario);
+        this.saldo = this.saldo + this.vagas[i].veiculo.calcularValorPago(this.vagas[i].horaEntrada, horario);
         this.relatorio.push(reg);
         this.vagas.splice(i, 1);
         return;
@@ -41,7 +41,7 @@ class Estacionamento {
     var rel = document.getElementById("relatorio");
     rel.innerHTML = '';
 
-    if(this.vagas.length == 0 && this.relatorio.length == 0) {
+    if (this.vagas.length == 0 && this.relatorio.length == 0) {
       var aviso = document.createElement("h2");
       var textoa = document.createTextNode("Ainda não houve registros");
       aviso.append(textoa);
@@ -49,34 +49,34 @@ class Estacionamento {
       return;
     }
 
-    if(this.vagas.length > 0) {
+    if (this.vagas.length > 0) {
       var titulo = document.createElement("h2");
       var texto = document.createTextNode("Carros estacionados");
       titulo.append(texto);
       rel.append(titulo);
     }
 
-    for(var i=0; i<this.vagas.length; i++) {
+    for (var i = 0; i < this.vagas.length; i++) {
       this.criaDiv(this.vagas[i]);
     }
 
-    if(this.relatorio.length > 0) {
+    if (this.relatorio.length > 0) {
       var titulo2 = document.createElement("h2");
       var texto2 = document.createTextNode("Carros registrados");
       titulo2.append(texto2);
       rel.append(titulo2);
     }
 
-    for(var i=0; i<this.relatorio.length; i++) {
+    for (var i = 0; i < this.relatorio.length; i++) {
       this.criaDiv(this.relatorio[i]);
-    } 
+    }
   }
 
   getSaldo() {
     var mostra = document.getElementById("saldo");
-    mostra.innerHTML='';
+    mostra.innerHTML = '';
 
-    if(this.saldo==0) {
+    if (this.saldo == 0) {
       var div1 = document.createElement("div");
       var aviso = document.createElement("span");
       var texto = document.createTextNode("Nenhum carro saiu do estacionamento ainda");
@@ -106,20 +106,20 @@ class Estacionamento {
     var placa = document.createTextNode("Placa: " + infos.veiculo.getPlaca());
     var horaEntrada = document.createTextNode("Hora Entrada: " + infos.horaEntrada);
     var horaSaida = document.createTextNode("Hora Saida: " + infos.horaSaida);
-  
+
     paragrafoNome.append(nome);
     paragrafoPlaca.append(placa);
-    paragrafoHoraEntrada.append(horaEntrada);  
+    paragrafoHoraEntrada.append(horaEntrada);
     paragrafoHoraSaida.append(horaSaida);
-  
+
     div.append(paragrafoNome);
     div.append(paragrafoPlaca);
     div.append(paragrafoHoraEntrada);
     div.append(paragrafoHoraSaida);
-    div.setAttribute("class","infos");
-  
+    div.setAttribute("class", "infos");
+
     var rel = document.getElementById("relatorio");
     rel.append(div);
   }
-  
+
 }
