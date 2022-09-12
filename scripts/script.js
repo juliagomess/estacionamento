@@ -30,11 +30,6 @@ function verificaHora(hora) {
     return false;
   }
 
-  if(h < 5 || h > 22) {
-    alert("Estacionamento fechado!");
-    return false;
-  }
-
   return true;
 }
 
