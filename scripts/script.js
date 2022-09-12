@@ -1,6 +1,43 @@
 var estacionamento = new Estacionamento(20);
 var cont = 1;
 
+function verificaHora(hora) {
+  if(hora.length > 5 || hora.length < 5) {
+    alert("Horário inválido (exemplo: XX:XX)");
+    return false;
+  }
+
+  if(hora.charAt(2) != ':'){
+    alert("Horário inválido (exemplo: XX:XX)");
+    return false;
+  }
+
+  if(isNaN(hora.charAt(0)) || isNaN(hora.charAt(1)) || isNaN(hora.charAt(3)) || isNaN(hora.charAt(4))) {
+    alert("Horário inválido (exemplo: XX:XX)");
+    return false;
+  }
+  
+  var h = parseInt(hora.slice(0, 2));
+  var m = parseInt(hora.slice(3, 5));
+
+  if(h > 23 || h < 0) {
+    alert("Horário inválido (exemplo: XX:XX)");
+    return false;
+  }
+
+  if(m > 59 || m < 0) {
+    alert("Horário inválido (exemplo: XX:XX)");
+    return false;
+  }
+
+  if(h < 5 || h > 22) {
+    alert("Estacionamento fechado!");
+    return false;
+  }
+
+  return true;
+}
+
 function entradaVeiculo() {
   var id = document.getElementById("id");
   var nome = document.getElementById("nome");
@@ -16,8 +53,7 @@ function entradaVeiculo() {
     return;
   }
 
-  if (horaEntrada.value.charAt(2) != ':') {
-    alert("Horário inválido (exemplo: XX:XX)");
+  if(!verificaHora(horaEntrada.value)) {
     return;
   }
 
@@ -55,8 +91,7 @@ function saidaVeiculo() {
     return;
   }
 
-  if (horaSaida.value.charAt(2) != ':') {
-    alert("Horário inválido (exemplo: XX:XX)");
+  if(!verificaHora(horaSaida.value)) {
     return;
   }
 
